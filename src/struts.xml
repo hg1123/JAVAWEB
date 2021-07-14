@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 第4步，在struts.xml里面配置action -->
+	<package name="default" extends="struts-default">
+		<!-- class属性要等于Spring容器里面的action的id -->
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="list">/manage/userlist.jsp</result>
+			<result name="index">/manage/index.jsp</result>
+			<result name="updatepwd">/manage/updatepwd.jsp</result>
+			<result name="login">/login.jsp</result>
+			<result name="detail">/manage/userdetail.jsp</result>
+			<result name="detail1" type="redirect">/user_detail.action</result>
+			<result name="updatesuccess" type="redirect">/user_detail.action</result>
+		</action>
+		<action name="health_*" class="healthAction" method="{1}">
+			<result name="list">/manage/healthlist.jsp</result>
+			<result name="update">/manage/updatepwd.jsp</result>
+			<result name="add">/login.jsp</result>
+			<result name="detail">/manage/self.jsp</result>
+			<result name="delete" type="redirect">/manage/health_list.action</result>
+		</action>
+		<action name="department_*" class="departmentAction" method="{1}">
+			<result name="list">/manage/department.jsp</result>
+			<result name="delete" type="redirect">/manage/department_list.action</result>
+		</action>
+		<action name="config_*" class="configAction" method="{1}">
+			<result name="detail">/manage/config.jsp</result>
+		</action>
+	</package>
+</struts>
